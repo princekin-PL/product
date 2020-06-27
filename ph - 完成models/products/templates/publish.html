@@ -1,0 +1,35 @@
+
+{% extends "theme.html" %}
+
+
+{% block content %}
+<h2 align='center'>发布Product Hunt</h2>
+<br>
+<!--enctype="multipart/form-data" 就是不需要转码 因为图片不用转码-->
+<form method='POST' action="{% url '产品发布' %}" align='center' enctype="multipart/form-data">
+    {% csrf_token %}
+    标题：
+        <br>
+    <input value="抖音-记录美好生活" type="text" name="标题">
+        <br>
+        <br>
+    介绍：
+        <br>
+    <textarea cols="100" rows="10"  name="介绍" > </textarea>
+        <br>
+    APP链接：
+        <br>
+    <input value="Http://" type="text" name="APP连接">
+        <br>
+    APP图标：
+        <br>
+    <input type="file" name="APP图标">
+        <br>
+    APP大图：
+        <br>
+    <input type="file" name="大图">
+        <br>
+    <input class='btn btn-primary' type="submit" value="发布">
+
+</form>
+{% endblock content %}
